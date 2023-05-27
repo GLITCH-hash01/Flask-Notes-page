@@ -8,6 +8,8 @@ import json
 
 views = Blueprint('views',__name__) 
 
+# Home page only accessible for logged in users
+#for adding new notes to the user
 @views.route('/',methods=['GET','POST'])
 @login_required
 def home():
@@ -24,9 +26,11 @@ def home():
 
     return render_template('home.html',user=current_user)
 
+# Deletes the note returns empty json
 @views.route('/delete-note',methods=['POST'])
 def delete_note():
-    data=json.load(request.data)
+    maindata=request.data.decode()
+    data=json.loads(maindata)
     noteId=data['noteId']
     note=Note.query.get(noteId)
     if note:
@@ -34,3 +38,4 @@ def delete_note():
             db.session.delete(note)
             db.session.commit()
             flash('Note deleted',category='successmessage')
+    return jsonify({})

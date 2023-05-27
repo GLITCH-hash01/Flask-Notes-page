@@ -13,7 +13,7 @@
 
 1. Make an SQL database named 'flasknote'
 
-2. Replace the username and password in this line
+2. Replace the username and password in the __init__.py
 ```
 app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://username:password@localhost/flasknote'
 ```

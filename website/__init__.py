@@ -9,7 +9,7 @@ db=SQLAlchemy()
 def create_app():
     app=Flask(__name__)
     app.config['SECRET_KEY'] ='hkjadkfasdfasdfasdfasdfasdfasdfasdfasdfasdf'# secret key for secure connection
-    app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:H2A0R0I4@localhost/flasknote' #using pymysql for connection to database here flasknote is the database
+    app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://username:password@localhost/flasknote' #using pymysql for connection to database here flasknote is the database
     db.init_app(app)
 
     login_manager=LoginManager()

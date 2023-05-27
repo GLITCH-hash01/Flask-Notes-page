@@ -10,7 +10,7 @@ dbname='database.db'
 def create_app():
     app=Flask(__name__)
     app.config['SECRET_KEY'] ='hkjadkfasdfasdfasdfasdfasdfasdfasdfasdfasdf'
-    app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///'+dbname
+    app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:H2A0R0I4@localhost/flasknote'
     db.init_app(app)
 
     login_manager=LoginManager()
